@@ -10,8 +10,8 @@ DELTA_TIME = 3e-5
 
 
 def main():
-    solar_system = RandomPlanetsWithSun(2, RESOLUTION_X, RESOLUTION_Y)
-    init_rpws_planets(solar_system, sun_x=0.5, sun_y=0.5)
+    solar_system = RandomPlanetsWithSun(5, RESOLUTION_X, RESOLUTION_Y)
+    init_rpws_planets(solar_system, sun_x=0.5, sun_y=0.5, min_mass=10)
 
     gui = ti.GUI("Gravity Simulator", res=(RESOLUTION_X, RESOLUTION_Y))  # type: ignore
 
