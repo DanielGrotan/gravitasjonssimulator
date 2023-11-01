@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 
 import taichi as ti
-
 from constants import VELOCITY_RESULTS_PATH
 
 ti.init()
@@ -12,11 +11,11 @@ delta_t = 3e-5
 resolution_x = 1200
 resolution_y = 800
 
-planets = ti.Vector.field(2, dtype=ti.f32, shape=n_planets)
-velocities = ti.Vector.field(2, dtype=ti.f32, shape=n_planets)
-masses = ti.field(ti.f32, shape=n_planets)
-radii = ti.field(ti.f32, shape=n_planets)
-force_vectors = ti.Vector.field(2, dtype=ti.f32, shape=n_planets)
+planets = ti.Vector.field(2, dtype=ti.f64, shape=n_planets)
+velocities = ti.Vector.field(2, dtype=ti.f64, shape=n_planets)
+masses = ti.field(ti.f64, shape=n_planets)
+radii = ti.field(ti.f64, shape=n_planets)
+force_vectors = ti.Vector.field(2, dtype=ti.f64, shape=n_planets)
 
 
 @ti.kernel

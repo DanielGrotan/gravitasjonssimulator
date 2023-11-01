@@ -10,11 +10,11 @@ class SolarSystem(ABC):
         self._resolution_x = resolution_x
         self._resolution_y = resolution_y
 
-        self._positions = ti.Vector.field(2, dtype=ti.f32, shape=n_planets)
-        self._velocities = ti.Vector.field(2, dtype=ti.f32, shape=n_planets)
-        self._masses = ti.field(ti.f32, shape=n_planets)
-        self._radii = ti.field(ti.f32, shape=n_planets)
-        self._force_vectors = ti.Vector.field(2, dtype=ti.f32, shape=n_planets)
+        self._positions = ti.Vector.field(2, dtype=ti.f64, shape=n_planets)
+        self._velocities = ti.Vector.field(2, dtype=ti.f64, shape=n_planets)
+        self._masses = ti.field(ti.f64, shape=n_planets)
+        self._radii = ti.field(ti.f64, shape=n_planets)
+        self._force_vectors = ti.Vector.field(2, dtype=ti.f64, shape=n_planets)
 
     @abstractmethod
     def init_planets(self) -> None:
