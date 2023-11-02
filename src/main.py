@@ -4,6 +4,9 @@ from pathlib import Path
 
 import taichi as ti
 
+from elliptic_orbit import EllipticOrbit
+from gravitational_slingshot import GravitationalSlingshot
+from hyperbolic_path import HyperbolicPath
 from random_planets import RandomPlanetsWithSun, init_rpws_planets
 from realistic_solar_system import RealisticSolarSystem
 
@@ -21,9 +24,9 @@ ANIMATION_FRAMES_DIR = ANIMATION_DIR / "frames"
 
 BAT_FILE_PATH = SRC_DIR / "frames_to_video.bat"
 
-CREATE_ANIMATION = True
-VIDEO_DIRNAME = "hello"
-VIDEO_NAME = "video"
+CREATE_ANIMATION = False
+VIDEO_DIRNAME = "realistic-solar-system"
+VIDEO_NAME = "improved_velocities"
 
 
 def main():

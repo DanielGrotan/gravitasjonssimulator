@@ -3,7 +3,9 @@
 if [%1]==[] GOTO No1
 if [%2]==[] GOTO No2
 
-cd $(git rev-parse --show-toplevel)
+for /f %%i in ('git rev-parse --show-toplevel') do set root=%%i
+cd %root%
+
 cd .\results\animation\
 
 if not exist .\%1\ mkdir %1

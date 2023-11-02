@@ -32,6 +32,20 @@ class SolarSystem(ABC):
         return self._radii
 
     @ti.func
+    def _create_object(
+        self,
+        index: ti.int32,
+        x: ti.f64,
+        y: ti.f64,
+        vel_x: ti.f64,
+        vel_y: ti.f64,
+        mass: ti.f64,
+    ):
+        self._positions[index] = [x, y]
+        self._velocities[index] = [vel_x, vel_y]
+        self._masses[index] = mass
+
+    @ti.func
     def _calculate_force_vectors(self) -> None:
         self._force_vectors.fill([0, 0])
         for p1, p2 in ti.ndrange(self._n_planets, self._n_planets):
@@ -39,6 +53,12 @@ class SolarSystem(ABC):
                 continue
 
             distance = (self._positions[p2] - self._positions[p1]).norm(1e-3)
+
+            # actual_distance = self._resolution_x * (distance - 1e-3**0.5)
+
+            # if actual_distance < self._radii[p1] + self._radii[p2]:
+            #     self._velocities[p1] *= -1
+
             change = (
                 self._masses[p1]
                 * self._masses[p2]
